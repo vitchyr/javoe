@@ -7,33 +7,35 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="right"
+        android:gravity="center_horizontal"
         android:orientation="vertical" >
 
         <TextView
             android:id="@+id/textView1"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="right"
             android:text="JAVOE Software"
+            android:textAlignment="viewEnd"
             android:textColor="#0099CC"
             android:textSize="24sp" />
 
         <ScrollView
             android:id="@+id/scrollView1"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content" >
 
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:orientation="vertical" >
 
                 <LinearLayout
+                    android:id="@+id/restaurant1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"
                     android:layout_marginTop="5dp"
+                    android:clickable="true"
                     android:gravity="center_vertical" >
 
                     <ImageView
@@ -52,10 +54,12 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/restaurant2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"
                     android:layout_marginTop="5dp"
+                    android:clickable="true"
                     android:gravity="center_vertical" >
 
                     <ImageView
@@ -74,10 +78,12 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/restaurant3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"
                     android:layout_marginTop="5dp"
+                    android:clickable="true"
                     android:gravity="center_vertical" >
 
                     <ImageView
@@ -96,10 +102,12 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/restaurant4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"
                     android:layout_marginTop="5dp"
+                    android:clickable="true"
                     android:gravity="center_vertical" >
 
                     <ImageView
@@ -118,10 +126,12 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/restaurant5"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"
                     android:layout_marginTop="5dp"
+                    android:clickable="true"
                     android:gravity="center_vertical" >
 
                     <ImageView
@@ -140,10 +150,12 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/restaurant6"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"
                     android:layout_marginTop="5dp"
+                    android:clickable="true"
                     android:gravity="center_vertical" >
 
                     <ImageView
@@ -162,10 +174,12 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/restaurant7"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"
                     android:layout_marginTop="5dp"
+                    android:clickable="true"
                     android:gravity="center_vertical" >
 
                     <ImageView
@@ -184,8 +198,10 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/restaurant8"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:clickable="true"
                     android:gravity="center_vertical" >
 
                     <ImageView
@@ -204,8 +220,10 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/restaurant9"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:clickable="true"
                     android:gravity="center_vertical" >
 
                     <ImageView
@@ -224,8 +242,10 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/restaurant10"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:clickable="true"
                     android:gravity="center_vertical" >
 
                     <ImageView

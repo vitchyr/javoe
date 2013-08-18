@@ -22,6 +22,20 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="com.javoe.firstrelease.RestaurantActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.Restaurant" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.javoe.firstrelease.FoodActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.Food" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
