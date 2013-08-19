@@ -15,17 +15,20 @@ public class RestaurantActivity extends Activity implements OnClickListener {
 		setContentView(R.layout.restaurant);
 		getActionBar().hide();
 		
-		((LinearLayout)findViewById(R.id.food1)).setOnClickListener(this);
+		/*((LinearLayout)findViewById(R.id.food1)).setOnClickListener(this);
 		((LinearLayout)findViewById(R.id.food2)).setOnClickListener(this);
+		*/
+		
 		((LinearLayout)findViewById(R.id.food3)).setOnClickListener(this);
-		((LinearLayout)findViewById(R.id.food4)).setOnClickListener(this);
+		
+		/*((LinearLayout)findViewById(R.id.food4)).setOnClickListener(this);
 		((LinearLayout)findViewById(R.id.food5)).setOnClickListener(this);
 		((LinearLayout)findViewById(R.id.food6)).setOnClickListener(this);
 		((LinearLayout)findViewById(R.id.food7)).setOnClickListener(this);
 		((LinearLayout)findViewById(R.id.food8)).setOnClickListener(this);
 		((LinearLayout)findViewById(R.id.food9)).setOnClickListener(this);
 		((LinearLayout)findViewById(R.id.food10)).setOnClickListener(this);
-		
+		*/
 		((Button)findViewById(R.id.btnRestaurantBack)).setOnClickListener(this);
 	}
 

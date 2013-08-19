@@ -16,7 +16,7 @@ public class MainActivity extends Activity  implements OnClickListener{
 		getActionBar().hide();
 		
 		((LinearLayout)findViewById(R.id.restaurant1)).setOnClickListener(this);
-		((LinearLayout)findViewById(R.id.restaurant2)).setOnClickListener(this);
+		/*((LinearLayout)findViewById(R.id.restaurant2)).setOnClickListener(this);
 		((LinearLayout)findViewById(R.id.restaurant3)).setOnClickListener(this);
 		((LinearLayout)findViewById(R.id.restaurant4)).setOnClickListener(this);
 		((LinearLayout)findViewById(R.id.restaurant5)).setOnClickListener(this);
@@ -25,6 +25,7 @@ public class MainActivity extends Activity  implements OnClickListener{
 		((LinearLayout)findViewById(R.id.restaurant8)).setOnClickListener(this);
 		((LinearLayout)findViewById(R.id.restaurant9)).setOnClickListener(this);
 		((LinearLayout)findViewById(R.id.restaurant10)).setOnClickListener(this);
+		*/
 	}
 
 	@Override
