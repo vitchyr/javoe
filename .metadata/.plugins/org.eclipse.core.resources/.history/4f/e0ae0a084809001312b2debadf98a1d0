@@ -203,6 +203,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Alternates:"
+        android:textColor="#669900"
         android:textSize="20sp" />
 
     <LinearLayout
@@ -228,6 +229,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Protein: 37g\nCalories: 470"
+                android:textColor="#99CC00"
                 android:textSize="14sp" />
 
         </LinearLayout>
@@ -255,6 +257,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Protein: 26g\nCalories: 490"
+                android:textColor="#99CC00"
                 android:textSize="14sp" />
 
         </LinearLayout>

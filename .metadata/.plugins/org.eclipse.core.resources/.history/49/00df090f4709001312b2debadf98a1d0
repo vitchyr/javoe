@@ -5,11 +5,4 @@
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
 
-    <string-array name="filters">
-        <item>Protein</item>
-        <item>Calories</item>
-        <item>Fat</item>
-        <item>Carbohydrates</item>
-        <item>Weight</item>
-    </string-array>
 </resources>
