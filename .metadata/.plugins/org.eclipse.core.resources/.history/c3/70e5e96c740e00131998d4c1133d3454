@@ -24,14 +24,14 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.ToggleButton;
 
-public class RestaurantActivity extends Activity{
-	//Food Class
+public class RestaurantActivity extends Activity implements OnClickListener {
+	//Restaurant Class
 	class Food{
 		int imgId;
 		String text;
 	}
 			
-	// FoodView Class
+	// RestaurantView Class
 	class FoodView{
 		private LinearLayout linLay;
 		private ImageView imgView;
@@ -68,9 +68,9 @@ public class RestaurantActivity extends Activity{
 		getActionBar().setDisplayHomeAsUpEnabled(true);
 	
 
-		ArrayList<Food> foods = getFoods();
+		ArrayList<Food> foods = getFood();
 		for(int i = 0; i < foods.size(); i++){
-			Food f = foods.get(i);
+			Food r = foods.get(i);
 			FoodView fView = createView(f);
 			fView.setOnClickListener(new OnClickListener(){
 				@Override
@@ -102,6 +102,35 @@ public class RestaurantActivity extends Activity{
 		// ... Get Restaurants from database ...
 		
 		return foods;
+	}
+
+	@Override
+	public void onClick(View v) {
+		switch(v.getId()){
+		case R.id.food1:
+			startActivity(new Intent("android.intent.action.Food"));
+			break;
+		case R.id.food2:
+			break;
+		case R.id.food3:
+			break;
+		case R.id.food4:
+			break;
+		case R.id.food5:
+			break;
+		case R.id.food6:
+			break;
+		case R.id.food7:
+			break;
+		case R.id.food8:
+			break;
+		case R.id.food9:
+			break;
+		case R.id.food10:
+			break;
+		default:
+			break;
+		}
 	}
 	
 	@Override

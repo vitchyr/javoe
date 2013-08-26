@@ -24,7 +24,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.ToggleButton;
 
-public class RestaurantActivity extends Activity{
+public class RestaurantActivity extends Activity implements OnClickListener {
 	//Food Class
 	class Food{
 		int imgId;
