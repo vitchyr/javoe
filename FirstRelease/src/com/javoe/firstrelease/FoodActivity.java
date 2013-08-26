@@ -11,14 +11,13 @@ public class FoodActivity extends Activity implements OnClickListener{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.food);
 		
-		getActionBar().hide();
+		getActionBar().setDisplayShowTitleEnabled(false);
+		getActionBar().setDisplayHomeAsUpEnabled(true);
 		
-		((Button)findViewById(R.id.btnFoodBack)).setOnClickListener(this);
 	}
 
 	@Override
 	public void onClick(View v) {
-		finish();
-		
+		// Do something
 	}
 }

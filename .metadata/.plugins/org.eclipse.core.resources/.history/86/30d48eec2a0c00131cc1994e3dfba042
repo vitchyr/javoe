@@ -1,0 +1,62 @@
+package com.javoe.firstrelease;
+
+import android.os.Bundle;
+import android.app.Activity;
+import android.content.Intent;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.LinearLayout;
+
+public class MainActivity extends Activity  implements OnClickListener{
+
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_main);
+		
+		// Set OnClickListeners for the 10 Restaurants
+		((LinearLayout)findViewById(R.id.restaurant1)).setOnClickListener(this);
+		((LinearLayout)findViewById(R.id.restaurant2)).setOnClickListener(this);
+		((LinearLayout)findViewById(R.id.restaurant3)).setOnClickListener(this);
+		((LinearLayout)findViewById(R.id.restaurant4)).setOnClickListener(this);
+		((LinearLayout)findViewById(R.id.restaurant5)).setOnClickListener(this);
+		((LinearLayout)findViewById(R.id.restaurant6)).setOnClickListener(this);
+		((LinearLayout)findViewById(R.id.restaurant7)).setOnClickListener(this);
+		((LinearLayout)findViewById(R.id.restaurant8)).setOnClickListener(this);
+		((LinearLayout)findViewById(R.id.restaurant9)).setOnClickListener(this);
+		((LinearLayout)findViewById(R.id.restaurant10)).setOnClickListener(this);
+		
+	}
+
+	@Override
+	public void onClick(View arg0) {
+		switch(arg0.getId()){
+			case R.id.restaurant1:
+				break;
+			case R.id.restaurant2:
+				startActivity(new Intent("android.intent.action.Restaurant"));
+				break;
+			case R.id.restaurant3:
+				break;
+			case R.id.restaurant4:
+				break;
+			case R.id.restaurant5:
+				break;
+			case R.id.restaurant6:
+				break;
+			case R.id.restaurant7:
+				break;
+			case R.id.restaurant8:
+				break;
+			case R.id.restaurant9:
+				break;
+			case R.id.restaurant10:
+				break;
+			default:
+				break;
+		}
+
+	}
+
+}

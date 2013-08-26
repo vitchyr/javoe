@@ -2,21 +2,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+    android:gravity="center_vertical"
     android:orientation="vertical"
     tools:context=".FoodActivity" >
-
-    <Button
-        android:id="@+id/btnFoodBack"
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Back"
-        android:textSize="24sp" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="5dp" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -25,13 +13,13 @@
         android:paddingLeft="48dp" >
 
         <ImageView
-            android:id="@+id/imageView1"
+            android:id="@+id/imgFood"
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:src="@drawable/whopper" />
 
         <TextView
-            android:id="@+id/textView1"
+            android:id="@+id/txtFood"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingLeft="15dp"
@@ -203,7 +191,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Alternates:"
-        android:textSize="20sp" />
+        android:textSize="24sp" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -217,18 +205,18 @@
             android:orientation="vertical" >
 
             <ImageView
-                android:id="@+id/imageView2"
+                android:id="@+id/imgAlternate1"
                 android:layout_width="64dp"
                 android:layout_height="52dp"
                 android:scaleType="fitCenter"
                 android:src="@drawable/tendergrill" />
 
             <TextView
-                android:id="@+id/textView25"
+                android:id="@+id/txtAlternate1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Protein: 37g\nCalories: 470"
-                android:textSize="14sp" />
+                android:textSize="18sp" />
 
         </LinearLayout>
 
@@ -244,18 +232,18 @@
             android:orientation="vertical" >
 
             <ImageView
-                android:id="@+id/imageView3"
+                android:id="@+id/imgAlternate2"
                 android:layout_width="64dp"
                 android:layout_height="52dp"
                 android:scaleType="fitCenter"
                 android:src="@drawable/double_stacker" />
 
             <TextView
-                android:id="@+id/textView27"
+                android:id="@+id/txtAlternate2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Protein: 26g\nCalories: 490"
-                android:textSize="14sp" />
+                android:textSize="18sp" />
 
         </LinearLayout>
 

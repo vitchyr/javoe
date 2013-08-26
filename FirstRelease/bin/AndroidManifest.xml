@@ -23,14 +23,24 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.javoe.firstrelease.RestaurantActivity" >
+            android:name="com.javoe.firstrelease.RestaurantActivity" 
+            android:parentActivityName="com.javoe.firstrelease.MainActivity">
+            <!-- Parent Activity meta-data to support Android 4.0 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.javoe.firstrelease.MainActivity" />
             <intent-filter>
                 <action android:name="android.intent.action.Restaurant" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
         <activity
-            android:name="com.javoe.firstrelease.FoodActivity" >
+            android:name="com.javoe.firstrelease.FoodActivity"
+            android:parentActivityName="com.javoe.firstrelease.RestaurantActivity">
+            <!-- Parent Activity meta-data to support Android 4.0 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.javoe.firstrelease.RestaurantActivity" />
             <intent-filter>
                 <action android:name="android.intent.action.Food" />
                 <category android:name="android.intent.category.DEFAULT" />
