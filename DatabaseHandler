@@ -1,0 +1,423 @@
+import java.util.ArrayList;
+import java.util.List;
+
+import android.content.ContentValues;
+import android.content.Context;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
+
+public class DatabaseHandler extends SQLiteOpenHelper 
+{
+	private static final int DATABASE_VERSION = 1;
+	
+	private static final String DATABASE_NAME = "JAVOE";
+	
+	private static final String TABLE_COMPANIES = "COMPANIES";
+	private static final String TABLE_FOOD_TYPE = "FOODTYPE";
+	private static final String TABLE_FOOD_INFO = "FOODINFO";
+	
+	//Companies Column Names
+	private static final String KEY_ID = "id";
+	private static final String KEY_IMAGEID = "imageId";
+	private static final String KEY_NAME = "name";
+	
+	//Food Type Column Names
+	private static final String KEY_ID2 = "id";
+	private static final String KEY_COMPANYID = "company_id";
+	private static final String KEY_NAME2 = "name";
+	
+	//Food Info Column Names
+	private static final String KEY_ID3 = "id";
+	private static final String KEY_IMAGEID2 = "imageId";
+	private static final String KEY_NAME3 = "name"; 
+	private static final String KEY_PROTEIN = "protein";
+	private static final String KEY_SUGARS = "sugars";
+	private static final String KEY_DIET_FIBER = "diet_fiber";
+	private static final String KEY_CARB = "carb";
+	private static final String KEY_SODIUM = "sodium";
+	private static final String KEY_CHOLESTROL = "chol";
+	private static final String KEY_TRANS_FAT = "trans_fat";
+	private static final String KEY_CALORIES_FROM_FAT = "calories_from_fat";
+	private static final String KEY_SATURATED_FAT = "saturated_fat";
+	private static final String KEY_TOTAL_FAT = "total_fat";
+	private static final String KEY_CALORIES = "calories";
+	
+	public DatabaseHandler(Context context)
+	{
+		super(context, DATABASE_NAME,null,DATABASE_VERSION);
+	}
+	
+	//Creating Companies Tables
+	public void onCreateCompanies(SQLiteDatabase db)
+	{
+		String CREATE_COMPANIES_TABLE = "CREATE TABLE " + TABLE_COMPANIES + "("
+				+ KEY_ID + " INTEGER PRIMARY KEY," + KEY_IMAGEID + " TEXT,"
+				+ KEY_NAME + " TEXT" + ")";
+		db.execSQL(CREATE_COMPANIES_TABLE);
+	}
+	
+	//Upgrading Companies Entire Database
+	public void onUpgradeCompanies(SQLiteDatabase db, int oldVer, int newVer)
+	{
+		db.execSQL("DROP TABLE IF EXISTS " + TABLE_COMPANIES);
+		
+		onCreateCompanies(db);
+	}
+	
+	//Adding a new Company
+	public void addCompany(Company company)
+	{
+		SQLiteDatabase db = this.getWritableDatabase();
+		
+		ContentValues values = new ContentValues();
+		values.put(KEY_ID, company.getId());
+		values.put(KEY_IMAGEID, company.getImageId());
+		values.put(KEY_NAME, company.getName());
+		
+		db.insert(TABLE_COMPANIES, null, values);
+		db.close();
+	}
+	
+	//Get an existing company
+	public Company getCompany(int id)
+	{
+		SQLiteDatabase db = this.getReadableDatabase();
+		
+		Cursor cursor = db.query(TABLE_COMPANIES, new String[] {KEY_ID, KEY_IMAGEID, KEY_NAME}, KEY_ID + "=?", new String[] {String.valueOf(id)}, null, null, null, null);
+		if(cursor != null)
+		{
+			cursor.moveToFirst();
+		}
+		
+		Company company = new Company(Integer.parseInt(cursor.getString(0)), Integer.parseInt(cursor.getString(1)), cursor.getString(3));
+		
+		return company;
+	}
+	
+	//Get list of all companies
+	public List<Company> getAllCompanies()
+	{
+		List<Company> list = new ArrayList<Company>();
+		
+		String query = "SELECT * FROM" + TABLE_COMPANIES;
+		
+		SQLiteDatabase db = this.getWritableDatabase();
+		Cursor cursor = db.rawQuery(query, null);
+		
+		if(cursor.moveToFirst())
+		{
+			do
+			{
+				Company company = new Company();
+				company.setId(Integer.parseInt(cursor.getString(0)));
+				company.setImageId(Integer.parseInt(cursor.getString(1)));
+				company.setName(cursor.getString(2));
+				
+				list.add(company);
+			}
+			while (cursor.moveToNext());
+		}
+		
+		return list;
+	}
+	
+	//Get total number of Companies
+	public int getNumberOfCompanies()
+	{
+		String query = "SELECT * FROM" + TABLE_COMPANIES;
+		SQLiteDatabase db = this.getReadableDatabase();
+		Cursor cursor = db.rawQuery(query,null);
+		cursor.close();
+		
+		return cursor.getCount();
+	}
+	
+	//Updating a single Company Information
+	public int updateCompany(Company company)
+	{
+		SQLiteDatabase db = this.getWritableDatabase();
+		
+		ContentValues values = new ContentValues();
+		values.put(KEY_ID, company.getId());
+		values.put(KEY_IMAGEID, company.getImageId());
+		values.put(KEY_NAME, company.getName());
+		
+		return db.update(TABLE_COMPANIES, values, KEY_ID + " = ?",
+	            new String[] { String.valueOf(company.getId())});
+
+	}
+	
+	//Deleting a Company
+	public void deleteCompany(Company company)
+	{
+		SQLiteDatabase db = this.getWritableDatabase();
+		db.delete(TABLE_COMPANIES,  KEY_ID + " = ?",
+	            new String[] { String.valueOf(company.getId()) });
+	    db.close();
+	}
+	
+//---------------------------------------------------------------------------------------------------------
+	
+	//Creating Food Type Table
+	public void onCreateFoodType(SQLiteDatabase db)
+	{
+		String CREATE_FOODTYPE_TABLE = "CREATE TABLE " + TABLE_FOOD_TYPE + "("
+				+ KEY_ID2 + " INTEGER PRIMARY KEY," + KEY_COMPANYID + " TEXT,"
+				+ KEY_NAME2 + " TEXT" + ")";
+		db.execSQL(CREATE_FOODTYPE_TABLE);
+	}
+	
+	//Upgrading Food Type Database
+	public void onUpgradeFoodType(SQLiteDatabase db, int oldVer, int newVer)
+	{
+		db.execSQL("DROP TABLE IF EXISTS " + TABLE_FOOD_TYPE);
+		
+		onCreateCompanies(db);
+	}
+	
+	//Adding a new Food Type
+	public void addFoodType(Food_Type foodType)
+		{
+			SQLiteDatabase db = this.getWritableDatabase();
+			
+			ContentValues values = new ContentValues();
+			values.put(KEY_ID2, foodType.getId());
+			values.put(KEY_COMPANYID, foodType.getCompanyId());
+			values.put(KEY_NAME2, foodType.getName());
+			
+			db.insert(TABLE_FOOD_TYPE, null, values);
+			db.close();
+		}
+		
+	//Get an existing Food Type
+	public Food_Type getFoodType(int id)
+		{
+			SQLiteDatabase db = this.getReadableDatabase();
+			
+			Cursor cursor = db.query(TABLE_FOOD_TYPE, new String[] {KEY_ID2, KEY_COMPANYID, KEY_NAME2}, KEY_ID2 + "=?", new String[] {String.valueOf(id)}, null, null, null, null);
+			if(cursor != null)
+			{
+				cursor.moveToFirst();
+			}
+			
+			Food_Type ft = new Food_Type(Integer.parseInt(cursor.getString(0)), Integer.parseInt(cursor.getString(1)), cursor.getString(2));
+			
+			return ft;
+		}
+		
+	//Get list of all Food Types
+	public List<Food_Type> getAllFoodTypes()
+		{
+			List<Food_Type> list = new ArrayList<Food_Type>();
+			
+			String query = "SELECT * FROM" + TABLE_FOOD_TYPE;
+			
+			SQLiteDatabase db = this.getWritableDatabase();
+			Cursor cursor = db.rawQuery(query, null);
+			
+			if(cursor.moveToFirst())
+			{
+				do
+				{
+					Food_Type ft = new Food_Type();
+					ft.setId(Integer.parseInt(cursor.getString(0)));
+					ft.setCompanyId(Integer.parseInt(cursor.getString(1)));
+					ft.setName(cursor.getString(2));
+					
+					list.add(ft);
+				}
+				while (cursor.moveToNext());
+			}
+			
+			return list;
+		}
+		
+	//Get total number of Food Types
+	public int getNumberOfFoodTypes()
+		{
+			String query = "SELECT * FROM" + TABLE_FOOD_TYPE;
+			SQLiteDatabase db = this.getReadableDatabase();
+			Cursor cursor = db.rawQuery(query,null);
+			cursor.close();
+			
+			return cursor.getCount();
+		}
+		
+	//Updating a single Food Type Information
+	public int updateFoodType(Food_Type ft)
+		{
+			SQLiteDatabase db = this.getWritableDatabase();
+			
+			ContentValues values = new ContentValues();
+			values.put(KEY_ID2, ft.getId());
+			values.put(KEY_COMPANYID, ft.getCompanyId());
+			values.put(KEY_NAME2, ft.getName());
+			
+			return db.update(TABLE_FOOD_TYPE, values, KEY_ID2 + " = ?",
+		            new String[] { String.valueOf(ft.getId())});
+
+		}
+		
+	//Deleting a Food Type
+	public void deleteFoodType(Food_Type ft)
+		{
+			SQLiteDatabase db = this.getWritableDatabase();
+			db.delete(TABLE_FOOD_TYPE,  KEY_ID2 + " = ?",
+		            new String[] { String.valueOf(ft.getId()) });
+		    db.close();
+		}
+
+//---------------------------------------------------------------------------------------------------------
+		
+	//Creating Food Info Database
+	public void onCreateFoodInfo(SQLiteDatabase db)
+	{
+		String CREATE_FOODINFO_TABLE = "CREATE TABLE " + TABLE_FOOD_INFO + "("
+				+ KEY_ID3 + " INTEGER PRIMARY KEY," + KEY_IMAGEID2 + " TEXT,"
+				+ KEY_NAME3 + " INTEGER PROTEIN KEY" + KEY_PROTEIN + " INTEGER SUGARS KEY"
+				+ KEY_SUGARS + " INTEGER DIET FIBER KEY" + KEY_DIET_FIBER + " INTEGER CARB KEY"
+				+ KEY_CARB + " INTEGER SODIUM KEY" + KEY_SODIUM + " INTEGER CHOLESTROL KEY" 
+				+ KEY_CHOLESTROL + " INTEGER TRANS FAT KEY" + KEY_TRANS_FAT + " INTEGER CALORIES FROM FAT KEY"
+				+ KEY_CALORIES_FROM_FAT + " INTEGER SATURATED FAT" + KEY_SATURATED_FAT + "INTEGER TOTAL FAT KEY"
+				+ KEY_TOTAL_FAT + " INTEGER CALORIES" + KEY_CALORIES + " TEXT" + ")";
+		db.execSQL(CREATE_FOODINFO_TABLE);
+	}
+	
+	//Upgrading Food Info Database
+	public void onUpgradeFoodInfo(SQLiteDatabase db, int oldVer, int newVer)
+	{
+		db.execSQL("DROP TABLE IF EXISTS " + TABLE_FOOD_INFO);
+		
+		onCreateFoodInfo(db);
+	}
+
+	//Adding a new Food Info
+	public void addFoodInfo(Food food)
+		{
+			SQLiteDatabase db = this.getWritableDatabase();
+			
+			ContentValues values = new ContentValues();
+			values.put(KEY_ID3, food.getId());
+			values.put(KEY_IMAGEID2, food.getImageId());
+			values.put(KEY_NAME3, food.getName());
+			values.put(KEY_PROTEIN, food.getProtein());
+			values.put(KEY_SUGARS, food.getSugar());
+			values.put(KEY_DIET_FIBER, food.getDiet_Fiber());
+			values.put(KEY_CARB, food.getCarb());
+			values.put(KEY_SODIUM, food.getSodium());
+			values.put(KEY_CHOLESTROL, food.getCholestrol());
+			values.put(KEY_TRANS_FAT, food.getTrans_Fat());
+			values.put(KEY_CALORIES_FROM_FAT, food.getCalories_from_fat());
+			values.put(KEY_SATURATED_FAT, food.getSaturated_fat());
+			values.put(KEY_TOTAL_FAT, food.getTotal_fat());
+			values.put(KEY_CALORIES, food.getCalories());
+			
+			db.insert(TABLE_FOOD_INFO, null, values);
+			db.close();
+		}
+		
+	//Get an existing Food Info Log
+	public Food getFoodInfo(int id)
+		{
+			SQLiteDatabase db = this.getReadableDatabase();
+			
+			Cursor cursor = db.query(TABLE_FOOD_INFO, new String[] {KEY_ID3, KEY_IMAGEID2, KEY_NAME3, KEY_PROTEIN, KEY_SUGARS, KEY_DIET_FIBER, KEY_CARB, KEY_SODIUM, KEY_CHOLESTROL, KEY_TRANS_FAT, KEY_CALORIES_FROM_FAT, KEY_SATURATED_FAT, KEY_TOTAL_FAT, KEY_CALORIES}, KEY_ID3 + "=?", new String[] {String.valueOf(id)}, null, null, null, null);
+			if(cursor != null)
+			{
+				cursor.moveToFirst();
+			}
+			
+			Food food = new Food(Integer.parseInt(cursor.getString(0)), Integer.parseInt(cursor.getString(1)), cursor.getString(3), Integer.parseInt(cursor.getString(4)), Integer.parseInt(cursor.getString(5)), Integer.parseInt(cursor.getString(6)), Integer.parseInt(cursor.getString(7)), Integer.parseInt(cursor.getString(8)), Integer.parseInt(cursor.getString(9)), Integer.parseInt(cursor.getString(10)), Integer.parseInt(cursor.getString(11)), Integer.parseInt(cursor.getString(12)), Integer.parseInt(cursor.getString(13)), Integer.parseInt(cursor.getString(14)));
+			
+			return food;
+		}
+		
+	//Get list of all Food Info
+	public List<Food> getAllFoodInfo()
+		{
+			List<Food> list = new ArrayList<Food>();
+			
+			String query = "SELECT * FROM" + TABLE_FOOD_INFO;
+			
+			SQLiteDatabase db = this.getWritableDatabase();
+			Cursor cursor = db.rawQuery(query, null);
+			
+			if(cursor.moveToFirst())
+			{
+				do
+				{
+					Food food = new Food();
+					food.setId(Integer.parseInt(cursor.getString(0)));
+					food.setImageId(Integer.parseInt(cursor.getString(1)));
+					food.setName(cursor.getString(2));
+					food.setProtein(Integer.parseInt(cursor.getString(3)));
+					food.setSugar(Integer.parseInt(cursor.getString(4)));
+					food.setDiet_Fiber(Integer.parseInt(cursor.getString(5)));
+					food.setCarb(Integer.parseInt(cursor.getString(6)));
+					food.setSodium(Integer.parseInt(cursor.getString(7)));
+					food.setCholestrol(Integer.parseInt(cursor.getString(8)));
+					food.setTrans_Fat(Integer.parseInt(cursor.getString(9)));
+					food.setCalories_from_fat(Integer.parseInt(cursor.getString(10)));
+					food.setSaturated_fat(Integer.parseInt(cursor.getString(11)));
+					food.setTotal_fat(Integer.parseInt(cursor.getString(12)));
+					food.setCalories(Integer.parseInt(cursor.getString(13)));
+					
+					list.add(food);
+				}
+				while (cursor.moveToNext());
+			}
+			
+			return list;
+		}
+		
+	//Get total number of Food Items Info
+	public int getNumberOfFoodInfo()
+		{
+			String query = "SELECT * FROM" + TABLE_FOOD_INFO;
+			SQLiteDatabase db = this.getReadableDatabase();
+			Cursor cursor = db.rawQuery(query,null);
+			cursor.close();
+			
+			return cursor.getCount();
+		}
+		
+	//Updating a single Food Info
+	public int updateFoodInfo(Food food)
+		{
+			SQLiteDatabase db = this.getWritableDatabase();
+			
+			ContentValues values = new ContentValues();
+			values.put(KEY_ID3, food.getId());
+			values.put(KEY_IMAGEID2, food.getImageId());
+			values.put(KEY_NAME3, food.getName());
+			values.put(KEY_PROTEIN, food.getProtein());
+			values.put(KEY_SUGARS, food.getSugar());
+			values.put(KEY_DIET_FIBER, food.getDiet_Fiber());
+			values.put(KEY_CARB, food.getCarb());
+			values.put(KEY_SODIUM, food.getSodium());
+			values.put(KEY_CHOLESTROL, food.getCholestrol());
+			values.put(KEY_TRANS_FAT, food.getTrans_Fat());
+			values.put(KEY_CALORIES_FROM_FAT, food.getCalories_from_fat());
+			values.put(KEY_SATURATED_FAT, food.getSaturated_fat());
+			values.put(KEY_TOTAL_FAT, food.getTotal_fat());
+			values.put(KEY_CALORIES, food.getCalories());
+			
+			return db.update(TABLE_FOOD_INFO, values, KEY_ID3 + " = ?",
+		            new String[] { String.valueOf(food.getId())});
+
+		}
+		
+	//Deleting a Food
+	public void deleteFoodInfo(Food food)
+		{
+			SQLiteDatabase db = this.getWritableDatabase();
+			db.delete(TABLE_FOOD_INFO,  KEY_ID3 + " = ?",
+		            new String[] { String.valueOf(food.getId()) });
+		    db.close();
+		}
+	
+	//Required Methods for SQLiteOpenHelper
+	public void onCreate(SQLiteDatabase arg0){}
+	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion){}
+}
