@@ -1,0 +1,42 @@
+package com.example.javoe;
+
+public class Food_Type 
+{
+	private int id;
+	private int company_id;
+	private String name;
+	
+	public Food_Type(){}
+	
+	public Food_Type(int id, int company_id, String name)
+	{
+		this.id = id;
+		this.company_id = company_id;
+		this.name = name;
+	}
+	
+	public void setId(int id)
+	{
+		this.id = id;
+	}
+	public int getId()
+	{
+		return id;
+	}
+	public void setCompanyId(int company_id)
+	{
+		this.company_id = company_id;
+	}
+	public int getCompanyId()
+	{
+		return company_id;
+	}
+	public void setName(String name)
+	{
+		this.name = name;
+	}
+	public String getName()
+	{
+		return name;
+	}
+}
