@@ -1,14 +1,11 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#CCCCCC"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
     tools:context=".MainActivity" >
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center_horizontal"
-        android:orientation="vertical" >
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -30,11 +27,12 @@
             android:id="@+id/scrMain"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" >
-
             <LinearLayout
+                android:id="@+id/linMain"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:orientation="vertical" >
+<!-- 
 
                 <LinearLayout
                     android:id="@+id/restaurant1"
@@ -289,10 +287,8 @@
                         android:textSize="30sp" />
 
                 </LinearLayout>
+-->
 
             </LinearLayout>
         </ScrollView>
-
     </LinearLayout>
-
-</RelativeLayout>

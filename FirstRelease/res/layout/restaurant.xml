@@ -5,16 +5,17 @@
     android:gravity="center_horizontal"
     android:orientation="vertical"
     tools:context=".RestaurantActivity" >
-
     <ScrollView
-        android:id="@+id/scrMain"
+        android:id="@+id/scrRestaurant"
         android:layout_width="wrap_content"
         android:layout_height="match_parent" >
 
         <LinearLayout
+       		android:id="@+id/linRestaurant"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:orientation="vertical" >
+<!-- 
 
             <LinearLayout
                 android:id="@+id/food1"
@@ -246,7 +247,7 @@
                     android:textSize="30sp" />
 
             </LinearLayout>
+-->
         </LinearLayout>
     </ScrollView>
-
 </LinearLayout>

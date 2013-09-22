@@ -6,10 +6,10 @@
     <string name="hello_world">Hello world!</string>
 
     <string-array name="filters">
+        <item>Name</item>
         <item>Protein</item>
         <item>Calories</item>
         <item>Fat</item>
         <item>Carbohydrates</item>
-        <item>Weight</item>
     </string-array>
 </resources>

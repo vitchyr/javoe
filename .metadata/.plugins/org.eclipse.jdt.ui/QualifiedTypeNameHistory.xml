@@ -1,26 +1,37 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
 <fullyQualifiedTypeName name="com.javoe.firstrelease.RestaurantActivity"/>
-<fullyQualifiedTypeName name="com.javoe.firstrelease.R.layout"/>
 <fullyQualifiedTypeName name="android.os.Bundle"/>
 <fullyQualifiedTypeName name="android.content.Intent"/>
 <fullyQualifiedTypeName name="android.view.View.OnClickListener"/>
 <fullyQualifiedTypeName name="android.widget.Button"/>
-<fullyQualifiedTypeName name="android.widget.Spinner"/>
 <fullyQualifiedTypeName name="android.widget.ArrayAdapter"/>
 <fullyQualifiedTypeName name="com.javoe.firstrelease.R.array"/>
-<fullyQualifiedTypeName name="android.R"/>
 <fullyQualifiedTypeName name="android.R.layout"/>
 <fullyQualifiedTypeName name="android.view.MenuInflater"/>
 <fullyQualifiedTypeName name="com.javoe.firstrelease.R.menu"/>
 <fullyQualifiedTypeName name="android.view.MenuItem"/>
 <fullyQualifiedTypeName name="android.widget.ToggleButton"/>
-<fullyQualifiedTypeName name="com.javoe.firstrelease.R.id"/>
 <fullyQualifiedTypeName name="android.widget.ScrollView"/>
 <fullyQualifiedTypeName name="android.view.View"/>
 <fullyQualifiedTypeName name="android.widget.LinearLayout"/>
-<fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="android.view.ViewGroup.LayoutParams"/>
+<fullyQualifiedTypeName name="com.javoe.firstrelease.R.layout"/>
+<fullyQualifiedTypeName name="android.view.Gravity"/>
+<fullyQualifiedTypeName name="com.javoe.firstrelease.R.drawable"/>
 <fullyQualifiedTypeName name="android.widget.ImageView"/>
+<fullyQualifiedTypeName name="com.javoe.firstrelease.R.id"/>
 <fullyQualifiedTypeName name="android.widget.TextView"/>
+<fullyQualifiedTypeName name="android.R"/>
+<fullyQualifiedTypeName name="com.javoe.firstrelease.FoodActivity"/>
+<fullyQualifiedTypeName name="java.util.HashMap"/>
+<fullyQualifiedTypeName name="java.util.Arrays"/>
+<fullyQualifiedTypeName name="android.widget.Spinner"/>
+<fullyQualifiedTypeName name="android.widget.AdapterView.OnItemClickListener"/>
+<fullyQualifiedTypeName name="java.util.Timer"/>
+<fullyQualifiedTypeName name="java.util.TimerTask"/>
+<fullyQualifiedTypeName name="android.widget.AdapterView.OnItemSelectedListener"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="java.io.Serializable"/>
+<fullyQualifiedTypeName name="java.util.List"/>
 </qualifiedTypeNameHistroy>
